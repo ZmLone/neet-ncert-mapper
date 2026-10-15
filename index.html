@@ -1,1 +1,68 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET NCERT Line-by-Line Mapper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 h-screen flex flex-col font-sans">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b border-gray-200 p-4 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-2xl font-extrabold text-blue-700 tracking-tight">NCERT<span class="text-gray-800">Mapper</span></h1>
+            
+            <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                <select id="chapter-select" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow-sm">
+                    <optgroup label="Class 11 Biology">
+                        <option value="data/class11/ch1-living-world.json">1. The Living World</option>
+                        <option value="data/class11/ch2-biological-classification.json">2. Biological Classification</option>
+                        <!-- Add more options pointing to your JSON files here -->
+                    </optgroup>
+                    <optgroup label="Class 12 Biology">
+                        <option value="data/class12/ch1-human-reproduction.json">1. Human Reproduction</option>
+                        <!-- Add more options here -->
+                    </optgroup>
+                </select>
+
+                <select id="exam-filter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 shadow-sm">
+                    <option value="ALL">All Exams (NEET, AIPMT, AIIMS)</option>
+                    <option value="NEET">NEET Only</option>
+                    <option value="AIPMT">AIPMT Only</option>
+                    <option value="AIIMS">AIIMS Only</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Split Screen -->
+    <main class="flex-1 flex flex-col md:flex-row overflow-hidden max-w-screen-2xl mx-auto w-full">
+        
+        <!-- Left Side: NCERT Text -->
+        <section class="w-full md:w-1/2 h-full flex flex-col border-r border-gray-200 bg-white">
+            <div class="bg-blue-600 text-white p-3 font-semibold text-center shadow-sm z-10">
+                NCERT Textbook
+            </div>
+            <div id="ncert-content" class="p-6 md:p-10 overflow-y-auto h-full text-lg leading-relaxed text-gray-800">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Right Side: PYQs -->
+        <section class="w-full md:w-1/2 h-full flex flex-col bg-gray-50">
+            <div class="bg-green-600 text-white p-3 font-semibold text-center shadow-sm z-10">
+                Previous Year Questions (PYQs)
+            </div>
+            <div id="pyq-content" class="p-4 md:p-8 overflow-y-auto h-full space-y-4">
+               <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Load the logic -->
+    <script src="js/app.js"></script>
+</body>
+</html>
